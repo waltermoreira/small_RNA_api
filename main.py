@@ -39,8 +39,9 @@ def search(arg):
     #   format=json
     #   SITE=at_sRNA  (indicates small RNA for Arabidopsis thaliana)
     # We will expose all of SITE=at_sRNA as one endpoint called at_sRNA.
-    url = 'http://mpss.udel.edu/web/php/pages/abundances.php?SITE=at_sRNA&chrnum=%d&beg=%d&end=%d&format=json' \
-        % (input_chr,input_beg,input_end)
+    url = ('http://mpss.udel.edu/web/php/pages/abundances.php?SITE=at_sRNA'
+           '&chrnum={chr}&beg={beg}&end={end}&format=json'
+           .format(chr=input_chr, beg=input_beg, end=input_end))
 
     rqst = requests.get(url)
 
