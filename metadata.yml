@@ -1,11 +1,11 @@
 # file: metadata.yml
 
 ---
-name: smallRNA_adapter
+name: at_sRNA
 version: 0.1
 type: query
 main_module: main.py
 url: http://mpss.udel.edu/
-description: 'Adapter for Small RNA abundance per line'
+description: 'Arabidopsis thalaiana small RNA abundance per line'
 whitelist:
   - mpss.udel.edu
