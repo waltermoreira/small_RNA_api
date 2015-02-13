@@ -1,7 +1,7 @@
 # file: metadata.yml
 
 ---
-name: at_sRNA
+name: at_srna
 version: 0.1
 type: query
 main_module: main.py
