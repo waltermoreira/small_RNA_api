@@ -58,34 +58,16 @@ def search(arg):
     except ValueError:
         raise Exception('could not decode JSON object')
 
-    # The payload includes this metadata.
-    # payload['SITE'] = "at_sRNA"
-    # payload['annotation'] = "TAIR10"
-    # payload ['species'] = "Arabidopsis thaliana"
-    # For now, we will filter out the metadata.
-    lib_abundances = payload['lib_abundances']
-    for one_seq in lib_abundances:
+    abundance_data = payload['abundance_data']
+    for one_seq in abundance_data:
         # Each one_seq includes the key tuple "sequence": "AAAGGGAAAGAACCC",
-        # and a few descriptive tuples (hits, position, strand, length).
-        # Some are inferrable from the data: hits, length.
-        # Separate out the others.
-        seq_sequence = one_seq['sequence']
-        seq_position = one_seq['position']
-        seq_strand   = one_seq['strand']
-        del one_seq['sequence']
-        del one_seq['position']
-        del one_seq['strand']
-        del one_seq['hits']
-        del one_seq['length']
-        # What is left is many tuples of <line>:<abundance> like "Col0":0.
-        # Since chr was given as input, it is redundant to include chr in output.
-        # However, position & strand without chr would be odd. So, include it.
-        one_rec = {
-                'sequence':seq_sequence,
-                'chromosome':input_chr,
-                'position':seq_position,
-                'strand':seq_strand,
-                'abundance_table':one_seq}
-        decoded = json.dumps(one_rec)
+        # and a few descriptive tuples (hits, position, strand)
+        # and an array (abundance_table) of objects, where each object is "lib":value. 
+        # Note "hits" value counts hits genome wide, not just this chromosome.
+
+        # Here, add optional code to reformat the JSON object.
+        # None required.
+
+        decoded = json.dumps(one_seq)
         print decoded
         print '---'

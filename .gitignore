@@ -1,0 +1,4 @@
+# Ignore emacs editor turds
+*.py~
+# Ignore compiled python
+*.pyc
