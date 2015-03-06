@@ -9,3 +9,23 @@ url: http://mpss.udel.edu/
 description: 'Arabidopsis thalaiana small RNA abundance per line'
 whitelist:
   - mpss.udel.edu
+endpoints:
+  /search
+    summary: |
+      Search small RNA abundance per line for a chromosome "chr"
+      in the region defined by "beg" and "end".
+    parameters:
+      - name: chr
+        description: Chromosome
+        type: string
+        required: true
+      - name: beg
+        description: Beginning
+        type: integer
+        format: int64
+        required: true
+      - name: end
+        description: End
+        type: integer
+        format: int64
+        required: true
