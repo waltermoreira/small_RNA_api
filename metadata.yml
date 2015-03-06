@@ -11,7 +11,8 @@ whitelist:
   - mpss.udel.edu
 endpoints:
   /search:
-    summary: |
+    summary: Search small RNA abundance
+    description: |
       Search small RNA abundance per line for a chromosome "chr"
       in the region defined by "beg" and "end".
     parameters:
